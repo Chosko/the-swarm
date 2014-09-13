@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ClientGameController : MonoBehaviour {
+public class ClientGameController : GameController {
 
 	// Use this for initialization
 	void Start () {

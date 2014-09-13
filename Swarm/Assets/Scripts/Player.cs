@@ -20,7 +20,7 @@ public class Player : MonoBehaviour {
 		CommandEventArgs cea = new CommandEventArgs();
 		Command fooCommand = new Command();
 		cea.command = fooCommand;
-		cea.id = id;
+		cea.bugId = 4; // some bug id
 		CommandEvent(this, cea);
 	}
 

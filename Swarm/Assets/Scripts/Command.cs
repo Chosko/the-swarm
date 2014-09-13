@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-enum CommandType{
+public enum CommandType{
 	ATTACK,
 	DEFEND,
 	SENTRY

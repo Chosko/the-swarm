@@ -15,3 +15,5 @@ Swarm/*.booproj
 
 #Unity3D Generated File On Crash Reports
 Swarm/sysinfo.txt
+
+.editorconfig

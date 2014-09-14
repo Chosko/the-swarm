@@ -11,10 +11,12 @@ public class Bug : MonoBehaviour {
 
 	Transform _transform; //cache
 
-	private int target;
+	public delegate void CommandHandler(object sender, CommandEventArgs eventArgs);
+	public event CommandHandler CommandEvent;
 
+	private Bug target;
 	// properties
-	public int Target{
+	public Bug Target{ // Sets a ref, does NOT COPY
 		get{
 			return target;
 		}
@@ -67,7 +69,11 @@ public class Bug : MonoBehaviour {
 	}
 
 	void OnMouseUp(){
-
+		CommandEventArgs cea = new CommandEventArgs();
+//		Command fooCommand = new Command();
+//		cea.command = fooCommand;
+		cea.bugId = 4; // some bug id
+		CommandEvent(this, cea);
 	}
 
 	// Use this for initialization

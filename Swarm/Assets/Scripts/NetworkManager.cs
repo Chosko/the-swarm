@@ -20,7 +20,7 @@ public class NetworkManager : MonoBehaviour {
     Screen.sleepTimeout = SleepTimeout.NeverSleep;
     
     // if in game_scene and disconnected load main menu
-    if (Application.loadedLevelName == ApplicationSettings.GAME_SCENE && Network.peerType == NetworkPeerType.Disconnected)
+    if (Application.loadedLevelName == ApplicationSettings.GAME_SCENE && Network.peerType == NetworkPeerType.Disconnected && PlayerSettings.Env != Envs.OFFLINE)
       Application.LoadLevel(ApplicationSettings.MAIN_MENU);
   }
   
@@ -162,6 +162,7 @@ public class NetworkManager : MonoBehaviour {
   /// </summary>
   public static void Shutdown ()
   {
+    Debug.Log("Shutdown network interface");
     Network.Disconnect (500);
     
     // if we use MasterServer
@@ -174,7 +175,6 @@ public class NetworkManager : MonoBehaviour {
   public static void Logout ()
   {
     
-  
   }
   
   /// <summary>
@@ -198,7 +198,7 @@ public class NetworkManager : MonoBehaviour {
   
   /// Loads the main menu (useful on logout)
   public static void LoadMainMenu(){
-	Debug.Log ("Loading Main Menu");
+    Debug.Log ("Loading Main Menu");
     Application.LoadLevel (ApplicationSettings.MAIN_MENU);
   }
 }

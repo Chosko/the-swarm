@@ -13,6 +13,9 @@ using System.Net;
 /// </description>
 public class NetworkManager : MonoBehaviour {
 
+  public GameObject clientControllerPrefab;
+  public GameObject serverControllerPrefab;
+
   // Use this for initialization
   void Start ()
   {
@@ -22,6 +25,27 @@ public class NetworkManager : MonoBehaviour {
     // if in game_scene and disconnected load main menu
     if (Application.loadedLevelName == ApplicationSettings.GAME_SCENE && Network.peerType == NetworkPeerType.Disconnected && PlayerSettings.Env != Envs.OFFLINE)
       Application.LoadLevel(ApplicationSettings.MAIN_MENU);
+
+    if(Application.loadedLevelName == ApplicationSettings.GAME_SCENE){
+      InitializeGameScene();
+    }
+  }
+
+  // Instantiate all the prefabs needed by the game scene
+  void InitializeGameScene(){
+    switch(PlayerSettings.Env){
+      case Envs.SERVER:
+        Instantiate(serverControllerPrefab, new Vector3(0,0,0), Quaternion.identity);
+        break;
+      case Envs.CLIENT:
+        Instantiate(clientControllerPrefab, new Vector3(0,0,0), Quaternion.identity);
+        break;
+      case Envs.OFFLINE:
+        Instantiate(serverControllerPrefab, new Vector3(0,0,0), Quaternion.identity);
+        break;
+      default:
+        throw new System.Exception("Unknown environment: " + PlayerSettings.Env);
+    }
   }
   
   // Update is called once per frame

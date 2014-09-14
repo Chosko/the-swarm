@@ -2,13 +2,6 @@
 using System; // for event handler
 using System.Collections;
 
-public enum GameState{
-	Planning,
-	Commanding,
-	Action,
-	End
-}
-
 // Handle common LOCAL functionality
 public abstract class GameController : MonoBehaviour {
 	public const int NUMBER_OF_PLAYERS = 2;
@@ -17,13 +10,14 @@ public abstract class GameController : MonoBehaviour {
 	protected GameObject[] playerPool;
 	protected Player[] players;
 
+	// The game state
+	protected GameState gs;
+
 	protected GameObject[] bugPool;
 	protected Bug[] bugs;
 
 	protected Vector3[] initialBugPositions;  // TBD may be replaceable after planning phase set.
 
-
-	
 	// prefabs
 	public GameObject playerPf;
 	public GameObject bugPf;
@@ -43,6 +37,7 @@ public abstract class GameController : MonoBehaviour {
 	// Use this for initialization
 	protected virtual void Start () {
 		Debug.Log("GC Start");
+		gs = GameState.getInstance ();
 		bugPool = new GameObject[AppSettings.NUMBER_OF_BUGS];
 		bugs = new Bug[AppSettings.NUMBER_OF_BUGS];
 
@@ -61,7 +56,6 @@ public abstract class GameController : MonoBehaviour {
 		initialBugPositions[3] = new Vector3(4f,5f,0f);
 		initialBugPositions[4] = new Vector3(8f,5f,0f);
 		InstantiateBugs();
-
 		players = new Player[NUMBER_OF_PLAYERS];
 		playerPool = new GameObject[NUMBER_OF_PLAYERS];
 

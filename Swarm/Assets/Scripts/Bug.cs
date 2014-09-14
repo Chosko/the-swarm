@@ -42,7 +42,7 @@ public class Bug : MonoBehaviour {
 	}
 
 	public Bug(Vector3 _position){
-		Position = _position
+		Position = _position;
 	}
 
 	// Behavior

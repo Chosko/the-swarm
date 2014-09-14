@@ -1,11 +1,11 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
-public class Human : PlayerController {
+public class AiPlayerController : PlayerController {
 
 	// Use this for initialization
 	protected override void Start () {
-		Debug.Log("Human Start");
+		Debug.Log("AI Start");
 		base.Start();
 	}
 	
@@ -18,7 +18,7 @@ public class Human : PlayerController {
 	protected override void PlanningStarted ()
 	{
 		base.PlanningStarted ();
-		
-		// TODO: Show a GUI to make the Human choose the bugs
+
+		// TODO: Make the AI choose all his bugs.
 	}
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RemoteHuman : PlayerController {
+public class RemotePlayerController : PlayerController {
 
 	// Use this for initialization
 	protected override void Start () {

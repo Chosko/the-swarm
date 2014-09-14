@@ -14,12 +14,12 @@ public class OfflineGameController : GameController {
 
 		// Left player is human
 		GameObject humanClone = (GameObject)Instantiate (HumanPf);
-		Human human = humanClone.GetComponent<Human> ();
+		HumanPlayerController human = humanClone.GetComponent<HumanPlayerController> ();
 		human.setTarget (players [0]);
 
 		// Right player is AI
 		GameObject aiClone = (GameObject)Instantiate (AIPf);
-		AI ai = aiClone.GetComponent<AI> ();
+		AiPlayerController ai = aiClone.GetComponent<AiPlayerController> ();
 		ai.setTarget (players [1]);
 	}
   

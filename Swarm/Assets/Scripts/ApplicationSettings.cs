@@ -44,22 +44,6 @@ public enum Envs
     OFFLINE
 }
 
-/// <summary>
-/// Enums the match states
-/// </summary>
-public enum MatchState
-{
-    /// <summary>
-    /// Waiting room state (score board displayed)
-    /// </summary>
-    WAITING_ROOM,
-
-    /// <summary>
-    /// Match state (the game)
-    /// </summary>
-    MATCH
-}
-
 public static class AppSettings
 {
 	public const int NUMBER_OF_PLAYERS = 2;

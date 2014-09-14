@@ -39,10 +39,16 @@ public class GameState{
 	private MatchState state;
 	private LinkedList<PlayerController> observers;
 
+	public delegate void UpdateStateAction();
+    public event UpdateStateAction OnPlanningStarted;
+    public event UpdateStateAction OnCommandingStarted;
+    public event UpdateStateAction OnActionStarted;
+    public event UpdateStateAction OnEndStarted;
+
 	// Private constructor
 	private GameState(){
-		State = MatchState.PLANNING;
 		observers = new LinkedList<PlayerController>();
+		State = MatchState.PLANNING;
 	}
 
 	public void AddObserver(PlayerController pc){
@@ -68,23 +74,25 @@ public class GameState{
 
 		set{
 			state = value;
-			foreach (PlayerController pc in observers) {
-				switch(value){
-					case MatchState.PLANNING:
-						pc.PlanningStarted();
-						break;
-					case MatchState.COMMANDING:
-						pc.CommandingStarted();
-						break;
-					case MatchState.ACTION:
-						pc.ActionStarted();
-						break;
-					case MatchState.END:
-						pc.EndStarted();
-						break;
-					default:
-						break;
-				}
+			switch(value){
+				case MatchState.PLANNING:
+					if(OnPlanningStarted != null)
+						OnPlanningStarted();
+					break;
+				case MatchState.COMMANDING:
+					if(OnCommandingStarted != null)
+						OnCommandingStarted();
+					break;
+				case MatchState.ACTION:
+					if(OnActionStarted != null)
+						OnActionStarted();
+					break;
+				case MatchState.END:
+					if(OnEndStarted != null)
+						OnEndStarted();
+					break;
+				default:
+					break;
 			}
 		}
 	}

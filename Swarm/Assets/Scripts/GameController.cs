@@ -23,8 +23,16 @@ public abstract class GameController : MonoBehaviour {
 	public GameObject bugPf;
 
 	// Listeners
-	protected virtual void OnCommand(object sender, CommandEventArgs eventArgs){;}
+	protected virtual void OnCommand(object sender, CommandEventArgs eventArgs){
+		// Determine Command
+
+		// Validate Command
+
+		// Execute Command
+	
+	}
 	protected void OnCommit(){;}
+
 
 	protected void InstantiateBugs(){
 		//  Object instantiate these fellas.

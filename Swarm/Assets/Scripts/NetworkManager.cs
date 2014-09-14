@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Net;
-using Settings;
 
 /// <summary>
 /// Network manager.
@@ -53,8 +52,11 @@ public class NetworkManager : MonoBehaviour {
   /// </param>
   void OnDisconnectedFromServer (NetworkDisconnection info)
   {
-    Debug.Log ("This CLIENT has disconnected from a server"); 
-    LoadMainMenu ();
+    Debug.Log ("This CLIENT has disconnected from a server");
+    if(PlayerSettings.Env != Envs.OFFLINE){
+      Debug.Log(PlayerSettings.Env.ToString());
+      LoadMainMenu();
+    }
   }
   
   /// <summary>

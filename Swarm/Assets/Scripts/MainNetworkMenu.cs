@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Settings;
 
 /// <summary>
 /// Main menu GUI.
@@ -93,10 +92,7 @@ public class MainNetworkMenu : MonoBehaviour
 		
 		//start a server
 		if (GUI.Button (new Rect (10, 60, 180, 25), "Start a Server")) {
-			PlayerSettings.Port = GUIPort;
-			if (!GUIDedicatedServer)
-				PlayerSettings.PlayerName = "Server player";
-			Network.InitializeServer (GUIMaxPlayers, GUIPort, false); //!Network.HavePublicAddress());
+      MainMenuController.StartServer(GUIPort, "Server Player");
 		}
 		
 		//return to the main menu
@@ -131,12 +127,7 @@ public class MainNetworkMenu : MonoBehaviour
 		
 		// connection to server
 		if (GUI.Button (new Rect (10, 80, 100, 24), "Connect")) {
-			PlayerSettings.Host = GUIServerHost;
-			PlayerSettings.PlayerName = GUIPlayerName;
-			PlayerSettings.Port = GUIPort;
-			
-			Debug.Log ("Connecting to " + GUIServerHost + ":" + GUIPort);
-			Network.Connect (GUIServerHost, GUIPort);
+			MainMenuController.ConnectToServer(GUIServerHost, GUIPort, GUIPlayerName);
 		}
 		
 		//return to the main menu
@@ -152,9 +143,7 @@ public class MainNetworkMenu : MonoBehaviour
 	{
 		if (GUI.Button(new Rect(210, 10, 150, 25), "Single Player"))
 		{
-			Debug.Log ("Starting single player match - loading " + ApplicationSettings.GAME_SCENE);
-			Application.LoadLevel (ApplicationSettings.GAME_SCENE);
-			Debug.Log ("Scene loaded");
+			MainMenuController.StartSinglePlayerMatch("Player");
 		}
 		
 		if (GUI.Button(new Rect(210, 50, 150, 25), "Start a Server"))

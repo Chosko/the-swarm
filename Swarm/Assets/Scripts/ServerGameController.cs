@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class ServerGameController : GameController {
@@ -14,12 +14,12 @@ public class ServerGameController : GameController {
 
 		// Left player is human
 		GameObject humanClone = (GameObject)Instantiate (HumanPf);
-		Human human = humanClone.GetComponent<Human> ();
+		HumanPlayerController human = humanClone.GetComponent<HumanPlayerController> ();
 		human.setTarget (players [0]);
 		
 		// Right player is remote
 		GameObject remoteClone = (GameObject)Instantiate (RemoteHumanPf);
-		RemoteHuman remoteHuman = remoteClone.GetComponent<RemoteHuman> ();
+		RemotePlayerController remoteHuman = remoteClone.GetComponent<RemotePlayerController> ();
 		remoteHuman.setTarget (players [1]);
 	}
 	

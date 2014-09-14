@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 4454e0a1ae5f04e44856e7723c50a0a1
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - introClip: {fileID: 8300000, guid: f0857198258a5534abd64c97b2801631, type: 3}
+  - guiH: {fileID: 8300000, guid: 85ce00461662a7540afed84279946550, type: 3}
+  - guiM: {fileID: 8300000, guid: 0e0bb790228b9b249a6a6cabb7266cb9, type: 3}
+  - guiL: {fileID: 8300000, guid: 4465615af1ad59840aba4b822b08ab66, type: 3}
+  - shootClip: {fileID: 8300000, guid: 4d3533fd2a75b5a4ebddad8976f813a5, type: 3}
+  - explosionClip: {fileID: 8300000, guid: 2558034549b23c84e9c90828eb4200a9, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

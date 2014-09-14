@@ -76,16 +76,20 @@ public class GameState{
 			state = value;
 			switch(value){
 				case MatchState.PLANNING:
-					OnPlanningStarted();
+					if(OnPlanningStarted != null)
+						OnPlanningStarted();
 					break;
 				case MatchState.COMMANDING:
-					OnCommandingStarted();
+					if(OnCommandingStarted != null)
+						OnCommandingStarted();
 					break;
 				case MatchState.ACTION:
-					OnActionStarted();
+					if(OnActionStarted != null)
+						OnActionStarted();
 					break;
 				case MatchState.END:
-					OnEndStarted();
+					if(OnEndStarted != null)
+						OnEndStarted();
 					break;
 				default:
 					break;

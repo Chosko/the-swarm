@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Net;
 
@@ -24,10 +24,10 @@ public class NetworkManager : MonoBehaviour {
     Screen.sleepTimeout = SleepTimeout.NeverSleep;
     
     // if in game_scene and disconnected load main menu
-    if (Application.loadedLevelName == ApplicationSettings.GAME_SCENE && Network.peerType == NetworkPeerType.Disconnected && PlayerSettings.Env != Envs.OFFLINE)
-      Application.LoadLevel(ApplicationSettings.MAIN_MENU);
+    if (Application.loadedLevelName == AppSettings.GAME_SCENE && Network.peerType == NetworkPeerType.Disconnected && PlayerSettings.Env != Envs.OFFLINE)
+      Application.LoadLevel(AppSettings.MAIN_MENU);
 
-    if(Application.loadedLevelName == ApplicationSettings.GAME_SCENE){
+    if(Application.loadedLevelName == AppSettings.GAME_SCENE){
       InitializeGameScene();
     }
   }
@@ -90,8 +90,8 @@ public class NetworkManager : MonoBehaviour {
   /// </summary>
   void OnConnectedToServer ()
   {
-    Debug.Log ("Client connected to server - loading " + ApplicationSettings.GAME_SCENE);
-    Application.LoadLevel (ApplicationSettings.GAME_SCENE);
+    Debug.Log ("Client connected to server - loading " + AppSettings.GAME_SCENE);
+    Application.LoadLevel (AppSettings.GAME_SCENE);
     Debug.Log ("Scene loaded");
   }
   
@@ -105,8 +105,8 @@ public class NetworkManager : MonoBehaviour {
   /// </summary>
   void OnServerInitialized ()
   {
-    Debug.Log ("Server initialized and ready - loading " + ApplicationSettings.GAME_SCENE);
-    Application.LoadLevel (ApplicationSettings.GAME_SCENE);
+    Debug.Log ("Server initialized and ready - loading " + AppSettings.GAME_SCENE);
+    Application.LoadLevel (AppSettings.GAME_SCENE);
     Debug.Log ("Connections: " + Network.connections.Length);
   }
   
@@ -224,6 +224,6 @@ public class NetworkManager : MonoBehaviour {
   /// Loads the main menu (useful on logout)
   public static void LoadMainMenu(){
     Debug.Log ("Loading Main Menu");
-    Application.LoadLevel (ApplicationSettings.MAIN_MENU);
+    Application.LoadLevel (AppSettings.MAIN_MENU);
   }
 }

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 /// <summary>
@@ -13,13 +13,13 @@ public static class PlayerSettings
 	{
 		set
 		{
-			PlayerPrefs.SetString(ApplicationSettings.PLAYERPREF_HOST_KEY, value);
+			PlayerPrefs.SetString(AppSettings.PLAYERPREF_HOST_KEY, value);
 			PlayerPrefs.Save();
 		}
 		
 		get
 		{
-			return PlayerPrefs.GetString(ApplicationSettings.PLAYERPREF_HOST_KEY, ApplicationSettings.DEFAULT_SERVER_HOST);
+			return PlayerPrefs.GetString(AppSettings.PLAYERPREF_HOST_KEY, AppSettings.DEFAULT_SERVER_HOST);
 		}
 	}
 	
@@ -30,13 +30,13 @@ public static class PlayerSettings
 	{
 		set
 		{
-			PlayerPrefs.SetString(ApplicationSettings.PLAYERPREF_ENV_KEY, value.ToString());
+			PlayerPrefs.SetString(AppSettings.PLAYERPREF_ENV_KEY, value.ToString());
 			PlayerPrefs.Save();
 		}
 		
 		get
 		{
-			var env = PlayerPrefs.GetString(ApplicationSettings.PLAYERPREF_ENV_KEY, "OFFLINE");
+			var env = PlayerPrefs.GetString(AppSettings.PLAYERPREF_ENV_KEY, "OFFLINE");
 			switch(env){
 			case "SERVER":
 				return Envs.SERVER;
@@ -57,12 +57,12 @@ public static class PlayerSettings
 	{
 		get
 		{
-			return PlayerPrefs.GetString(ApplicationSettings.PLAYERPREF_PLAYER_NAME_KEY, ApplicationSettings.DEFAULT_PLAYER_NAME + "_" + (int)(Random.value * 1000)); 
+			return PlayerPrefs.GetString(AppSettings.PLAYERPREF_PLAYER_NAME_KEY, AppSettings.DEFAULT_PLAYER_NAME + "_" + (int)(Random.value * 1000)); 
 		}
 		
 		set
 		{
-			PlayerPrefs.SetString(ApplicationSettings.PLAYERPREF_PLAYER_NAME_KEY, value);
+			PlayerPrefs.SetString(AppSettings.PLAYERPREF_PLAYER_NAME_KEY, value);
 			PlayerPrefs.Save();
 		}
 	}
@@ -74,12 +74,12 @@ public static class PlayerSettings
 	{
 		get
 		{
-			return PlayerPrefs.GetInt(ApplicationSettings.PLAYERPREF_PORT_KEY, ApplicationSettings.DEFAULT_SERVER_PORT);
+			return PlayerPrefs.GetInt(AppSettings.PLAYERPREF_PORT_KEY, AppSettings.DEFAULT_SERVER_PORT);
 		}
 		
 		set
 		{
-			PlayerPrefs.SetInt(ApplicationSettings.PLAYERPREF_PORT_KEY, value);
+			PlayerPrefs.SetInt(AppSettings.PLAYERPREF_PORT_KEY, value);
 			PlayerPrefs.Save();
 		}
 	}

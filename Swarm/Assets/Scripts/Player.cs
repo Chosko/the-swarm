@@ -3,12 +3,6 @@ using System; // for event handler
 using System.Collections;
 
 
-public class CommandEventArgs : EventArgs{
-	public Command command;
-	public int bugId; //source bug
-}
-
-
 public class Player : MonoBehaviour {
 
 	public delegate void CommandHandler(object sender, CommandEventArgs eventArgs);

@@ -1,10 +1,16 @@
 ﻿using UnityEngine;
+using System; // for event handler
 using System.Collections;
 
 public enum CommandType{
 	ATTACK,
 	DEFEND,
 	SENTRY
+}
+
+public class CommandEventArgs : EventArgs{
+	public Command command;
+	public int bugId; //source bug
 }
 
 public class Command{

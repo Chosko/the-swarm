@@ -20,7 +20,7 @@ public class OfflineGameController : GameController {
 		// Right player is AI
 		GameObject aiClone = (GameObject)Instantiate (AIPf);
 		AI ai = aiClone.GetComponent<AI> ();
-		ai.setTarget (players [0]);
+		ai.setTarget (players [1]);
 	}
   
 	// Update is called once per frame

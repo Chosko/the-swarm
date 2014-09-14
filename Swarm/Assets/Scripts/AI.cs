@@ -4,12 +4,21 @@ using System.Collections;
 public class AI : PlayerController {
 
 	// Use this for initialization
-	void Start () {
-	
+	protected override void Start () {
+		Debug.Log("AI Start");
+		base.Start();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	// Called as the MatchState changes to PLANNING
+	protected override void PlanningStarted ()
+	{
+		base.PlanningStarted ();
+
+		// TODO: Make the AI choose all his bugs.
 	}
 }

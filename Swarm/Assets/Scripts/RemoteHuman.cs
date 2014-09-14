@@ -4,8 +4,9 @@ using System.Collections;
 public class RemoteHuman : PlayerController {
 
 	// Use this for initialization
-	void Start () {
-	
+	protected override void Start () {
+		Debug.Log("RemoteHuman Start");
+		base.Start();
 	}
 	
 	// Update is called once per frame

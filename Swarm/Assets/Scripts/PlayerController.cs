@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour {
 	protected GameState gs;
 
 	// Use this for initialization
-	void Start () {
+	protected virtual void Start () {
 		gs = GameState.getInstance ();
 		gs.OnPlanningStarted += PlanningStarted;
 	    gs.OnCommandingStarted += CommandingStarted;
@@ -39,22 +39,22 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	// Called when the PLANNING state starts
-	public virtual void PlanningStarted(){
+	protected virtual void PlanningStarted(){
 		Debug.Log("PlanningStarted called on PlayerController");
 	}
 
 	// Called when the COMMANDING state starts
-	public virtual void CommandingStarted(){
+	protected virtual void CommandingStarted(){
 		Debug.Log("CommandingStarted called on PlayerController");
 	}
 
 	// Called when the ACION state starts
-	public virtual void ActionStarted(){
+	protected virtual void ActionStarted(){
 		Debug.Log("ActionStarted called on PlayerController");
 	}
 
 	// Called when the END state starts
-	public virtual void EndStarted(){
+	protected virtual void EndStarted(){
 		Debug.Log("EndStarted called on PlayerController");
 	}
 

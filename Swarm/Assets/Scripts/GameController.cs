@@ -46,6 +46,10 @@ public abstract class GameController : MonoBehaviour {
 	protected virtual void Start () {
 		Debug.Log("GC Start");
 		gs = GameState.getInstance ();
+
+		// HARDCODE
+		gs.State = MatchState.COMMANDING;
+
 		bugPool = new GameObject[AppSettings.NUMBER_OF_BUGS];
 		bugs = new Bug[AppSettings.NUMBER_OF_BUGS];
 

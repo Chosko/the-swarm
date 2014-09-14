@@ -4,7 +4,8 @@ using System.Collections;
 public class ServerGameController : GameController {
 
 	// Use this for initialization
-	void Start () {
+	protected override void Start () {
+		base.Start();
     Debug.Log("Started ServerGameController");
 	}
 	

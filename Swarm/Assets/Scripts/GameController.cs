@@ -14,6 +14,10 @@ public abstract class GameController : MonoBehaviour {
 
 	public const int NUMBER_OF_PLAYERS = 2;
 
+	// prefabs
+	public GameObject playerPf;
+
+	protected GameObject[] playerPool;
 	protected Player[] players;
 
 	// Listeners
@@ -21,10 +25,17 @@ public abstract class GameController : MonoBehaviour {
 	protected void OnCommit(){;}
 
 	// Use this for initialization
-	void Start () {
+	protected virtual void Start () {
 		Debug.Log("GC Start");
 		players = new Player[NUMBER_OF_PLAYERS];
-		players[0].StartInit(); // instantiate game objectes owned by player
+		playerPool = new GameObject[NUMBER_OF_PLAYERS];
+
+		Vector3 _position = new Vector3(0f,0f,0f); // whatev... change this for a better layout
+		for (int i=0; i < NUMBER_OF_PLAYERS; i++){
+			playerPool[i] = UnityEngine.GameObject.Instantiate(playerPf, _position, Quaternion.Euler(new Vector3()) ) as GameObject;
+			players[i] = playerPool[i].GetComponent<Player>();
+			players[i].StartInit(); // instantiate game objectes owned by player
+		}
 
 	}
 	

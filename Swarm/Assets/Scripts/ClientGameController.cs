@@ -4,7 +4,7 @@ using System.Collections;
 public class ClientGameController : GameController {
 
 	// Use this for initialization
-	void Start () {
+	protected override void Start () {
 	 Debug.Log("Started ClientGameController");
 	}
 	

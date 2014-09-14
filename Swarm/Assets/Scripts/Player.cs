@@ -22,19 +22,6 @@ public class Player : MonoBehaviour {  // CRINGE!  Don't really need it to be a 
 	}
 
 	public void StartInit(){
-		bugPool = new GameObject[NUMBER_OF_BUGS];
-		bugs = new Bug[NUMBER_OF_BUGS];
-
-		//  Object instantiate these fellas.
-		Vector3 _position = new Vector3(0f,0f,0f); // whatev... change this for a better layout
-		for (int i=0; i < NUMBER_OF_BUGS; i++){
-			_position.x = 2*i-1.5f;
-			bugPool[i] = UnityEngine.GameObject.Instantiate(bugPf, _position, Quaternion.Euler(new Vector3()) ) as GameObject;
-			bugs[i] = bugPool[i].GetComponent<Bug>();
-//			spheres[i].Init(i, _position,sphereColors[i]);
-//			spheres[i].SphereSelectionEvent += OnSphereClicked;
-		}
-
 	}
 
 	public delegate void CommandHandler(object sender, CommandEventArgs eventArgs);
@@ -48,6 +35,22 @@ public class Player : MonoBehaviour {  // CRINGE!  Don't really need it to be a 
 		cea.command = fooCommand;
 		cea.bugId = 4; // some bug id
 		CommandEvent(this, cea);
+	}
+
+	protected virtual void Start () {
+		Debug.Log("Player Start()");
+		bugPool = new GameObject[NUMBER_OF_BUGS];
+		bugs = new Bug[NUMBER_OF_BUGS];
+		
+		//  Object instantiate these fellas.
+		Vector3 _position = new Vector3(0f,0f,0f); // whatev... change this for a better layout
+		for (int i=0; i < NUMBER_OF_BUGS; i++){
+			_position.x = 2*i-1.5f;
+			bugPool[i] = UnityEngine.GameObject.Instantiate(bugPf, _position, Quaternion.Euler(new Vector3()) ) as GameObject;
+			bugs[i] = bugPool[i].GetComponent<Bug>();
+			//			spheres[i].Init(i, _position,sphereColors[i]);
+			//			spheres[i].SphereSelectionEvent += OnSphereClicked;
+		}
 	}
 
 }

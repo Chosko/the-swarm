@@ -3,14 +3,28 @@ using System.Collections;
 
 public class OfflineGameController : GameController {
 
-  // Use this for initialization
+	// The player controllers prefab
+	public GameObject AIPf;
+	public GameObject HumanPf;
+
+  	// Use this for initialization
 	protected override void Start () {
-		base.Start();
 		Debug.Log("Started OfflineGameController");
+		base.Start();
+
+		// Left player is human
+		GameObject humanClone = (GameObject)Instantiate (HumanPf);
+		Human human = humanClone.GetComponent<Human> ();
+		human.setTarget (players [0]);
+
+		// Right player is AI
+		GameObject aiClone = (GameObject)Instantiate (AIPf);
+		AI ai = aiClone.GetComponent<AI> ();
+		ai.setTarget (players [0]);
 	}
   
 	// Update is called once per frame
  	void Update () {
-  
+  		
 	}
 }

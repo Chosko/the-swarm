@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RemoteHuman : MonoBehaviour {
+public class RemoteHuman : PlayerController {
 
 	// Use this for initialization
 	void Start () {

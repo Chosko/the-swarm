@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AI : MonoBehaviour {
+public class AI : PlayerController {
 
 	// Use this for initialization
 	void Start () {

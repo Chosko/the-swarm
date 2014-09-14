@@ -2,13 +2,6 @@
 using System; // for event handler
 using System.Collections;
 
-public enum GameState{
-	Planning,
-	Commanding,
-	Action,
-	End
-}
-
 // Handle common LOCAL functionality
 public abstract class GameController : MonoBehaviour {
 
@@ -20,6 +13,9 @@ public abstract class GameController : MonoBehaviour {
 	protected GameObject[] playerPool;
 	protected Player[] players;
 
+	// The game state
+	protected GameState gs;
+
 	// Listeners
 	protected virtual void OnCommand(object sender, CommandEventArgs eventArgs){;}
 	protected void OnCommit(){;}
@@ -27,6 +23,7 @@ public abstract class GameController : MonoBehaviour {
 	// Use this for initialization
 	protected virtual void Start () {
 		Debug.Log("GC Start");
+		gs = GameState.getInstance ();
 		players = new Player[NUMBER_OF_PLAYERS];
 		playerPool = new GameObject[NUMBER_OF_PLAYERS];
 

@@ -4,7 +4,8 @@ using System.Collections;
 
 
 public class Player : MonoBehaviour {  // CRINGE!  Don't really need it to be a monobehavior, but easier than passing PF from GameController
-	
+
+	public Color color;
 	private Command[] commands;
 
 	public Player(){

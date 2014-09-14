@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 /// <summary>
@@ -27,8 +27,8 @@ public class MainNetworkMenu : MonoBehaviour
 		GUIServerHost = PlayerSettings.Host;
 		GUIPlayerName = PlayerSettings.PlayerName;
 		GUIPort = PlayerSettings.Port;
-		GUIServerName = ApplicationSettings.DEFAULT_SERVER_NAME;
-		GUIMaxPlayers = ApplicationSettings.DEFAULT_MAX_PLAYERS;
+		GUIServerName = AppSettings.DEFAULT_SERVER_NAME;
+		GUIMaxPlayers = AppSettings.DEFAULT_MAX_PLAYERS;
 	}
 	
 	/// <summary>

@@ -60,8 +60,13 @@ public enum MatchState
     MATCH
 }
 
-public static class ApplicationSettings
+public static class AppSettings
 {
+	public const int NUMBER_OF_PLAYERS = 2;
+
+	public const int NUMBER_OF_BUGS = 5;
+
+
     /// <summary>
     /// The time elapsed between each client status update
     /// </summary>

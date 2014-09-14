@@ -11,22 +11,57 @@ public enum GameState{
 
 // Handle common LOCAL functionality
 public abstract class GameController : MonoBehaviour {
-
 	public const int NUMBER_OF_PLAYERS = 2;
-
-	// prefabs
-	public GameObject playerPf;
+	public const int NUMBER_OF_BUGS = 5;
 
 	protected GameObject[] playerPool;
 	protected Player[] players;
+
+	protected GameObject[] bugPool;
+	protected Bug[] bugs;
+
+	protected Vector3[] initialBugPositions;  // TBD may be replaceable after planning phase set.
+
+
+	
+	// prefabs
+	public GameObject playerPf;
+	public GameObject bugPf;
 
 	// Listeners
 	protected virtual void OnCommand(object sender, CommandEventArgs eventArgs){;}
 	protected void OnCommit(){;}
 
+	protected void InstantiateBugs(){
+		//  Object instantiate these fellas.
+		for (int i=0; i < NUMBER_OF_BUGS; i++){
+			bugPool[i] = Instantiate(bugPf,initialBugPositions[i], Quaternion.Euler(new Vector3()) ) as GameObject;
+			bugs[i] = bugPool[i].GetComponent<Bug>();
+		}
+	}
+
 	// Use this for initialization
 	protected virtual void Start () {
 		Debug.Log("GC Start");
+		bugPool = new GameObject[AppSettings.NUMBER_OF_BUGS];
+		bugs = new Bug[AppSettings.NUMBER_OF_BUGS];
+
+		initialBugPositions = new Vector3[AppSettings.NUMBER_OF_BUGS];
+
+		initialBugPositions[0] = new Vector3(-8f,0f,0f);
+		initialBugPositions[1] = new Vector3(-4f,0f,0f);
+		initialBugPositions[2] = new Vector3(0f,0f,0f);
+		initialBugPositions[3] = new Vector3(4f,0f,0f);
+		initialBugPositions[4] = new Vector3(8f,0f,0f);
+		InstantiateBugs();
+
+		initialBugPositions[0] = new Vector3(-8f,5f,0f);
+		initialBugPositions[1] = new Vector3(-4f,5f,0f);
+		initialBugPositions[2] = new Vector3(0f,5f,0f);
+		initialBugPositions[3] = new Vector3(4f,5f,0f);
+		initialBugPositions[4] = new Vector3(8f,5f,0f);
+		InstantiateBugs();
+
 		players = new Player[NUMBER_OF_PLAYERS];
 		playerPool = new GameObject[NUMBER_OF_PLAYERS];
 

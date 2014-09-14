@@ -1,5 +1,18 @@
 ﻿using UnityEngine;
+using System; // for event handler
 using System.Collections;
+
+
+//public class BugSelectEventArgs : EventArgs{
+//	public int owner;
+//	public int bugId; //source bug
+//	public BugState bugState;
+//}
+
+public enum BugState{
+	ALIVE,
+	DEAD,
+}
 
 public class Bug : MonoBehaviour {
 
@@ -9,10 +22,15 @@ public class Bug : MonoBehaviour {
 	public int owner;
 	public int id; // 0-4 for now
 
-	Transform _transform; //cache
+	protected Transform _transform; //cache
+	protected BugState bugState;
 
-	public delegate void CommandHandler(object sender, CommandEventArgs eventArgs);
-	public event CommandHandler CommandEvent;
+	public delegate void BugSelectHandler(object sender);
+	public event BugSelectHandler BugSelectEvent;
+
+	public bool IsDead(){
+		return (bugState == BugState.DEAD);
+	}
 
 	private Bug target;
 	// properties
@@ -69,16 +87,17 @@ public class Bug : MonoBehaviour {
 	}
 
 	void OnMouseUp(){
-		CommandEventArgs cea = new CommandEventArgs();
-//		Command fooCommand = new Command();
-//		cea.command = fooCommand;
-		cea.bugId = 4; // some bug id
-		CommandEvent(this, cea);
+//		BugSelectEventArgs bsea = new BugSelectEventArgs();
+//		bsea.bugId = id;
+//		bsea.owner = owner;
+//		bsea.bugState = bugState;
+//		BugSelectEvent(this, bsea);
+		BugSelectEvent(this);
 	}
 
 	// Use this for initialization
 	void Start () {
-	
+		_transform = this.transform;
 	}
 	
 	// Update is called once per frame

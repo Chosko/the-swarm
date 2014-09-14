@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Beatle : MonoBehaviour {
+public class Beetle : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

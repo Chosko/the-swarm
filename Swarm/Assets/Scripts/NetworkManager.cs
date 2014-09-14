@@ -15,6 +15,7 @@ public class NetworkManager : MonoBehaviour {
 
   public GameObject clientControllerPrefab;
   public GameObject serverControllerPrefab;
+  public GameObject offlineControllerPrefab;
 
   // Use this for initialization
   void Start ()
@@ -41,7 +42,7 @@ public class NetworkManager : MonoBehaviour {
         Instantiate(clientControllerPrefab, new Vector3(0,0,0), Quaternion.identity);
         break;
       case Envs.OFFLINE:
-        Instantiate(serverControllerPrefab, new Vector3(0,0,0), Quaternion.identity);
+        Instantiate(offlineControllerPrefab, new Vector3(0,0,0), Quaternion.identity);
         break;
       default:
         throw new System.Exception("Unknown environment: " + PlayerSettings.Env);

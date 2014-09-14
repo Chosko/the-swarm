@@ -57,7 +57,7 @@ public class GameState{
 	}
 
 	// Destroys the current instance. To call before starting the game
-	public static GameState destroyInstance(){
+	public static void destroyInstance(){
 		instance = null;
 	}
 
